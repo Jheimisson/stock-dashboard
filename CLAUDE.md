@@ -21,6 +21,17 @@ Two-file separation of concerns:
 
 - **`app.py`** — pure presentation layer. Calls `load_data()` (a cached wrapper around `fetch_data()` with 1h TTL) then renders: metric cards → closing price chart → cumulative performance chart → weekly volume bar chart. All charts use `plotly.graph_objects` with `go.Scatter` / `go.Bar`; no Plotly Express.
 
+## GitHub Repository
+
+O projeto está sincronizado com o repositório: **https://github.com/Jheimisson/stock-dashboard**
+
+A cada alteração de arquivo feita pelo Claude, um hook automático executa:
+```bash
+git add -A && git commit -m "Auto-update: <data>" && git push
+```
+
+Isso garante que o GitHub sempre reflita o estado atual do projeto.
+
 ## Key Details
 
 - Tickers are B3 stocks with the `.SA` suffix required by Yahoo Finance: `SANB11.SA`, `ITUB4.SA`, `VALE3.SA`.
